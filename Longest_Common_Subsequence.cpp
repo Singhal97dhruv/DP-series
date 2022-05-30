@@ -6,7 +6,7 @@ using namespace std;
 
 int lcs(string X,string Y,int m,int n){
     if(m==0 || n==0)return 0;
-    if(X[m-1]==Y[m-1]){
+    if(X[m-1]==Y[n-1]){
         return 1+lcs(X,Y,m-1,n-1);
     }
     else{
@@ -52,7 +52,6 @@ int main(){
     //For finding the length of the longest common subsequence
     cout<<"Through recursive approach ->"<<lcs(X,Y,X.size(),Y.size())<<endl;       // Recursive approach
 
-    mem.resize(X.size(),vector<int>(Y.size(),-1));
     cout<<"Through bottom up approach ->"<<memorization(X,Y,X.size(),Y.size())<<endl;
 
     dprog(X,Y,X.size(),Y.size());
